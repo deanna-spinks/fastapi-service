@@ -19,12 +19,14 @@ repos:
     rev: 25.9.0
     hooks:
       - id: black
+        args: ['--line-length=88']
 
   # isort for import ordering
   - repo: https://github.com/pycqa/isort
     rev: 6.1.0
     hooks:
       - id: isort
+        args: ['--profile=black', '--line-length=88']
 
 # Commit Message Linting
   - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
