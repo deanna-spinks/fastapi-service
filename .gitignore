@@ -9,3 +9,17 @@
 .venv/*
 venv/
 venv/*
+
+# Testing
+.pytest_cache
+tests/.pytest_cache
+tests/.pytest_cache/*
+tests/unit-tests/.pytest_cache
+tests/unit-tests/.pytest_cache/*
+
+# Coverage reports
+.coverage
+.coverage.*
+htmlcov/
+*.cover
+.pytest_cache/

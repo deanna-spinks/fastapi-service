@@ -1,2 +1,7 @@
 fastapi[standard]
 uvicorn
+pydantic
+pytest
+pytest-asyncio
+pytest-cov
+faker
