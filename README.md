@@ -24,7 +24,7 @@ fastapi-service/
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/deanna-spinks/fastapi-service.git
    cd fastapi-service
    ```
 
@@ -46,6 +46,27 @@ uvicorn src.main:app --reload
 ```
 
 The service will be available at `http://localhost:8000`
+
+## 📚 API Documentation
+
+Once the service is running, visit:
+
+- **Interactive API Docs (Swagger)**: http://localhost:8000/docs
+- **Alternative API Docs (ReDoc)**: http://localhost:8000/redoc
+
+### Available Endpoints
+
+#### Health Check
+```
+GET /health
+```
+Returns service health status
+
+#### Root
+```
+GET /
+```
+Returns "FastAPI Service is running" message
 
 ## 📄 License
 
