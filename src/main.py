@@ -3,6 +3,8 @@ from datetime import datetime
 import uvicorn
 from fastapi import FastAPI
 
+from api.routes.patients import patients_router
+
 app = FastAPI()
 
 
@@ -18,6 +20,9 @@ def health():
 @app.get("/")
 def root():
     return {"message": "FastAPI Service is running"}
+
+
+app.include_router(patients_router)
 
 
 if __name__ == "__main__":

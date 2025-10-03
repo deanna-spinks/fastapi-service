@@ -17,12 +17,12 @@ async def list_patients():
     return await list_patients_handler()
 
 
-@patients_router.post("/")
+@patients_router.post("/", response_model=PatientRead)
 async def create_patient(patient: PatientCreate):
     return await create_patient_handler(patient)
 
 
-@patients_router.get("/{patient_id}")
+@patients_router.get("/{patient_id}", response_model=PatientRead)
 async def get_patient(patient_id: int):
     return await get_patient_handler(patient_id)
 
@@ -32,11 +32,6 @@ async def patch_patient(patient_id: int, patient_update: PatientUpdate):
     return await update_patient_handler(patient_id, patient_update)
 
 
-@patients_router.put("/{patient_id}")
-async def update_patient(patient_id: int, patient: PatientUpdate):
-    return await update_patient_handler(patient_id, patient)
-
-
-@patients_router.delete("/{patient_id}")
+@patients_router.delete("/{patient_id}", response_model=None)
 async def delete_patient(patient_id: int):
     return await delete_patient_handler(patient_id)
