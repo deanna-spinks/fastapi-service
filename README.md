@@ -6,14 +6,21 @@ A modern, cloud-ready microservice built with FastAPI.
 
 ```
 fastapi-service/
-└── src/
-    └── main.py               # Application entry point
+├── src/
+│   ├── api/
+│   │   ├── handlers/         # Business logic layer
+│   │   └── routes/           # API route definitions
+│   ├── models/               # Pydantic models
+│   ├── storage/              # Data persistence layer
+│   ├── utils/                # Helper utilities
+│   └── main.py               # Application entry point
 ```
 
 ## 🛠️ Tech Stack
 
 - **[FastAPI](https://fastapi.tiangolo.com/)** - Modern, fast web framework for building APIs
 - **[Uvicorn](https://www.uvicorn.org/)** - Lightning-fast ASGI server
+- **[Pydantic](https://docs.pydantic.dev/)** - Data validation using Python type hints
 
 ## ✅ Prerequisites
 
@@ -67,6 +74,30 @@ Returns service health status
 GET /
 ```
 Returns "FastAPI Service is running" message
+
+#### Patient Management
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/patients/` | List all patients |
+| POST | `/patients/` | Create a new patient |
+| GET | `/patients/{id}` | Get a specific patient |
+| PATCH | `/patients/{id}` | Partially update a patient |
+| DELETE | `/patients/{id}` | Delete a patient |
+
+#### Example: Create a Patient
+
+```bash
+curl -X POST "http://localhost:8000/patients/" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Doe",
+    "age": 35,
+    "gender": "male",
+    "email": "john.doe@example.com",
+    "phone": "03 9876 5432"
+  }'
+```
 
 ## 📄 License
 
