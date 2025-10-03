@@ -2,18 +2,35 @@
 
 A modern, cloud-ready microservice built with FastAPI.
 
+## 📋 Table of Contents
+
+- [Architecture](#architecture)
+- [Tech Stack](#tech-stack)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the Service](#running-the-service)
+- [API Documentation](#api-documentation)
+- [Testing](#testing)
+- [License](#license)
+
 ## 🏗️ Architecture
 
 ```
 fastapi-service/
 ├── src/
 │   ├── api/
+│   │   ├── exceptions.py     # Custom exception handlers
 │   │   ├── handlers/         # Business logic layer
 │   │   └── routes/           # API route definitions
 │   ├── models/               # Pydantic models
 │   ├── storage/              # Data persistence layer
 │   ├── utils/                # Helper utilities
 │   └── main.py               # Application entry point
+├── tests/
+│   ├── conftest.py           # Shared test fixtures
+│   └── unit-tests/           # Unit tests
+├── pyproject.toml            # Test configuration
+└── requirements.txt          # Python dependencies
 ```
 
 ## 🛠️ Tech Stack
@@ -97,6 +114,15 @@ curl -X POST "http://localhost:8000/patients/" \
     "email": "john.doe@example.com",
     "phone": "03 9876 5432"
   }'
+```
+
+## Testing
+```bash
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov=src
 ```
 
 ## 📄 License
