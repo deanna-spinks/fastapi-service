@@ -1,7 +1,7 @@
 from typing import Dict
 
-from models.patients import PatientCreate, PatientRead, PatientUpdate
-from utils.id_generator import get_next_id
+from src.models.patients import PatientCreate, PatientRead, PatientUpdate
+from src.utils.id_generator import get_next_id
 
 patients: Dict[int, PatientRead] = {}
 

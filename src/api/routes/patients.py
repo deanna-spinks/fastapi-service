@@ -1,13 +1,13 @@
 from fastapi import APIRouter
 
-from api.handlers.patients import (
+from src.api.handlers.patients import (
     create_patient_handler,
     delete_patient_handler,
     get_patient_handler,
     list_patients_handler,
     update_patient_handler,
 )
-from models.patients import PatientCreate, PatientRead, PatientUpdate
+from src.models.patients import PatientCreate, PatientRead, PatientUpdate
 
 patients_router = APIRouter(prefix="/patients", tags=["patients"])
 

@@ -3,7 +3,7 @@ from datetime import datetime
 import uvicorn
 from fastapi import FastAPI
 
-from api.routes.patients import patients_router
+from src.api.routes.patients import patients_router
 
 app = FastAPI()
 

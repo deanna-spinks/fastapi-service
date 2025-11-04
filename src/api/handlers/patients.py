@@ -1,7 +1,7 @@
 from fastapi import HTTPException
 
-from models.patients import PatientCreate, PatientRead, PatientUpdate
-from storage.memory import (
+from src.models.patients import PatientCreate, PatientRead, PatientUpdate
+from src.storage.memory import (
     create_patient,
     delete_patient,
     get_patient,
