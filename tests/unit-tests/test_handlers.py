@@ -36,7 +36,7 @@ class TestHandleNotFoundError:
             with pytest.raises(HTTPException) as exc_info:
                 handle_not_found_error(error)
             assert exc_info.value.status_code == 404
-            assert exc_info.value.detail == "Patient not found"
+            assert exc_info.value.detail == error_message
         else:
             with pytest.raises(ValueError, match=error_message):
                 handle_not_found_error(error)
@@ -96,7 +96,7 @@ class TestPatientHandlers:
                 with pytest.raises(HTTPException) as exc_info:
                     await eval(f"{handler_func}")(**handler_args)
                 assert exc_info.value.status_code == 404
-                assert exc_info.value.detail == "Patient not found"
+                assert exc_info.value.detail == error_type
             else:
                 # Should re-raise original ValueError
                 with pytest.raises(ValueError, match=error_type):

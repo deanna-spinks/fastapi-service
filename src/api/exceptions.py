@@ -33,7 +33,7 @@ def handle_not_found_error(e: ValueError) -> None:
         ...     raise ValueError("Patient with id 1 not found")
         ... except ValueError as e:
         ...     handle_not_found_error(e)
-        HTTPException: 404 Patient not found
+        HTTPException: 404 Patient with id 1 not found
         
         >>> try:
         ...     raise ValueError("Database connection failed")
@@ -42,6 +42,5 @@ def handle_not_found_error(e: ValueError) -> None:
         ValueError: Database connection failed
     """
     if "not found" in str(e).lower():
-        raise HTTPException(status_code=404, detail="Patient not found")
+        raise HTTPException(status_code=404, detail=str(e))
     raise e
-
