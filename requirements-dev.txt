@@ -1,0 +1,35 @@
+# Development Dependencies
+# These are used by CI/CD pipelines and local development
+# Install with: pip install -r requirements-dev.txt
+
+# Include base requirements
+-r requirements.txt
+
+# Linting & Code Quality
+ruff>=0.14.0              # Fast Python linter
+black>=25.0.0             # Code formatter
+isort>=7.0.0              # Import sorting
+mypy>=1.18.0              # Static type checking
+
+# Security
+bandit>=1.8.0            # Code security scanner
+# Dependency scanning handled by Trivy in CI/CD)
+
+# Testing
+pytest>=8.4.0            # Core testing framework
+pytest-asyncio>=1.2.0    # Async test support (required for FastAPI)
+pytest-cov>=7.0.0        # Coverage reporting integration
+faker>=37.0.0            # Test data generation
+
+# Testing (additional tools)
+pytest-xdist>=3.8.0      # Parallel test execution
+pytest-timeout>=2.4.0    # Test timeout protection
+pytest-mock>=3.15.0      # Mocking utilities
+
+# Coverage reporting
+coverage[toml]>=7.11.0    # Coverage measurement
+
+# Development utilities
+ipython>=9.7.0           # Enhanced Python shell
+ipdb>=0.13.13            # IPython debugger
+watchdog>=6.0.0          # File system monitoring for auto-reload
