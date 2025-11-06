@@ -12,6 +12,13 @@ addopts = [
     "--cov-fail-under=80",
 ]
 markers = [
-    "unit: Unit tests"
+    "unit: Unit tests",
+    "integration: Integration tests that test multiple components together",
+    "performance: Performance tests that measure response times and resource usage",
+    "slow: Tests that take longer to run"
 ]
 asyncio_mode = "auto"
+
+[tool.isort]
+profile = "black"
+line_length = 88

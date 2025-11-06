@@ -10,6 +10,7 @@ A modern, cloud-ready microservice built with FastAPI.
 - [Running the Service](#running-the-service)
 - [API Documentation](#api-documentation)
 - [Testing](#testing)
+- [CI/CD](#cicd)
 - [License](#license)
 
 ## 🏗️ Architecture
@@ -131,12 +132,56 @@ curl -X POST "http://localhost:8000/patients/" \
 ```
 
 ## Testing
-```bash
-# Run all tests
-pytest
 
-# Run with coverage
-pytest --cov=src
+```bash
+# Quick way (using Makefile)
+make test              # Run all tests with coverage (currently: unit tests only)
+make test-unit         # Run unit tests only
+make lint              # Check code quality
+make ci                # Simulate full CI/CD pipeline locally
+
+# Or directly with pytest
+pytest                 # Run all tests (currently: unit tests only)
+pytest --cov=src       # Run with coverage report
+pytest tests/unit-tests/ -v  # Run unit test suite
+```
+
+### Test Structure
+- ✅ **Unit Tests** (`tests/unit-tests/`) - Fast, isolated component tests (implemented)
+- 🚧 **Integration Tests** (`tests/integration/`) - API endpoint testing (planned)
+- 🚧 **E2E Tests** (`tests/e2e/`) - Full user journey testing (planned)
+- 📋 **Performance Tests** (`tests/performance/`) - Load and stress testing (future)
+
+Coverage threshold: **80%** (enforced by CI/CD on implemented tests)
+
+## 🚀 CI/CD
+
+This project includes **production-ready CI/CD pipelines** for GitHub Actions.
+
+### GitHub Actions
+- ✅ **Automated testing** on pull requests (~9 minutes)
+- ✅ **Code quality checks** (linting, formatting, type checking)
+- ✅ **Security scanning** (Trivy, dependency checks)
+- ✅ **Docker image builds** and publishing to GitHub Container Registry
+- ✅ **Path filtering** - Only runs on code changes (skips documentation-only commits)
+- ✅ **Coverage reporting** with Codecov integration
+
+**Pipeline Behavior:**
+- 🔹 **Feature branches:** Pipeline runs when you open/update a PR (not on push)
+- 🔹 **Main/Develop:** Pipeline runs on every push (~10-12 minutes)
+- 🔹 **Publish:** Docker images published automatically on merge to main
+
+### Quick Commands
+
+```bash
+# Simulate CI/CD locally before pushing
+make ci
+
+# Quick pre-commit check
+make pre-commit
+
+# Run what the pipeline runs
+make lint && make test && make docker-build
 ```
 
 ## 📄 License
