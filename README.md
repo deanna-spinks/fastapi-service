@@ -4,10 +4,9 @@ A modern, cloud-ready microservice built with FastAPI.
 
 ## 📋 Table of Contents
 
+- [Quick Start](#quick-start)
 - [Architecture](#architecture)
 - [Tech Stack](#tech-stack)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
 - [Running the Service](#running-the-service)
 - [API Documentation](#api-documentation)
 - [Testing](#testing)
@@ -17,20 +16,16 @@ A modern, cloud-ready microservice built with FastAPI.
 
 ```
 fastapi-service/
-├── src/
-│   ├── api/
-│   │   ├── exceptions.py     # Custom exception handlers
-│   │   ├── handlers/         # Business logic layer
-│   │   └── routes/           # API route definitions
-│   ├── models/               # Pydantic models
+├── src/                      # Application source code
+│   ├── api/                  # API layer (routes, handlers, exceptions)
+│   ├── core/                 # Core functionality and configuration
+│   ├── models/               # Pydantic data models
 │   ├── storage/              # Data persistence layer
-│   ├── utils/                # Helper utilities
 │   └── main.py               # Application entry point
-├── tests/
-│   ├── conftest.py           # Shared test fixtures
-│   └── unit-tests/           # Unit tests
-├── pyproject.toml            # Test configuration
-└── requirements.txt          # Python dependencies
+├── tests/                    # Test suite
+├── Dockerfile                # Container definition
+├── requirements.txt          # Python dependencies
+└── pyproject.toml           # Project configuration
 ```
 
 ## 🛠️ Tech Stack
@@ -39,37 +34,56 @@ fastapi-service/
 - **[Uvicorn](https://www.uvicorn.org/)** - Lightning-fast ASGI server
 - **[Pydantic](https://docs.pydantic.dev/)** - Data validation using Python type hints
 
-## ✅ Prerequisites
+## 🚀 Quick Start
 
-- Python 3.13+
-- pip for dependency management
+**Recommended: Docker** (fastest way to get started)
 
-## 📦 Installation
+```bash
+git clone https://github.com/deanna-spinks/fastapi-service.git
+cd fastapi-service
+docker build -t fastapi-service .
+docker run -p 8000:8000 --env-file .env.development fastapi-service
+```
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/deanna-spinks/fastapi-service.git
-   cd fastapi-service
-   ```
-
-2. **Setup virtual environment**
-    ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate
-
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+Visit http://localhost:8000/docs for interactive API documentation.
 
 ## 🏃 Running the Service
 
-Ensure the virtual environment is activated then run:
+### Option 1: Docker (Recommended)
+
+**Development:**
 ```bash
-uvicorn src.main:app --reload
+docker build -t fastapi-service .
+docker run -p 8000:8000 --env-file .env.development fastapi-service
 ```
 
-The service will be available at `http://localhost:8000`
+**Production:**
+```bash
+docker build -f Dockerfile.prod -t fastapi-service:prod .
+docker run -p 8000:8000 --env-file .env.prod fastapi-service:prod
+```
+
+Configure via `PORT` and `LOG_LEVEL` environment variables.
+
+### Option 2: Local Development
+
+**Prerequisites:** Python 3.13+
+
+1. **Clone and setup**
+   ```bash
+   git clone https://github.com/deanna-spinks/fastapi-service.git
+   cd fastapi-service
+   python3 -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+2. **Run the service**
+   ```bash
+   uvicorn src.main:app --reload
+   ```
+
+The service will be available at http://localhost:8000
 
 ## 📚 API Documentation
 
