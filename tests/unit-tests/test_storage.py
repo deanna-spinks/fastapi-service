@@ -97,10 +97,10 @@ class TestPatientStorage:
         assert result[1].patient_id == 2
         assert result[2].patient_id == 3
 
-    async def test_update_patient_success(self):
+    async def test_update_patient_success(self, patient_data_factory):
         """Test partial update preserves unchanged fields"""
         await self._create_test_patient(
-            1, name="Original", email="original@example.com"
+            patient_data_factory, 1, name="Original", email="original@example.com"
         )
 
         result = await update_patient(1, PatientUpdate(name="Updated"))
@@ -116,9 +116,9 @@ class TestPatientStorage:
         with pytest.raises(ValueError, match="Patient with id 999 not found"):
             await update_patient(999, update_data)
 
-    async def test_delete_patient_success(self):
+    async def test_delete_patient_success(self, patient_data_factory):
         """Test deleting a patient successfully"""
-        await self._create_test_patient(1)
+        await self._create_test_patient(patient_data_factory, 1)
 
         await delete_patient(1)
 
