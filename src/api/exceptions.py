@@ -46,4 +46,3 @@ def handle_not_found_error(e: ValueError) -> NoReturn:
     if "not found" in str(e).lower():
         raise HTTPException(status_code=404, detail=str(e))
     raise e
-
