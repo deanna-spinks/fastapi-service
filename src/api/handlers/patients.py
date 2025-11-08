@@ -1,5 +1,6 @@
 from fastapi import HTTPException
 
+from src.api.exceptions import handle_not_found_error
 from src.models.patients import PatientCreate, PatientRead, PatientUpdate
 from src.storage.memory import (
     create_patient,
@@ -31,16 +32,12 @@ async def update_patient_handler(
     try:
         return await update_patient(patient_id, patient_update)
     except ValueError as e:
-        if "not found" in str(e).lower():
-            raise HTTPException(status_code=404, detail="Patient not found")
-        raise
+        handle_not_found_error(e)
 
 
 async def delete_patient_handler(patient_id: int) -> dict:
     try:
         await delete_patient(patient_id)
     except ValueError as e:
-        if "not found" in str(e).lower():
-            raise HTTPException(status_code=404, detail="Patient not found")
-        raise
+        handle_not_found_error(e)
     return {"message": "Patient deleted successfully"}
