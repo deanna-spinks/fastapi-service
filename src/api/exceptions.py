@@ -6,10 +6,12 @@ This module provides utilities for converting domain-level exceptions
 for consistent API error responses.
 """
 
+from typing import NoReturn
+
 from fastapi import HTTPException
 
 
-def handle_not_found_error(e: ValueError) -> None:
+def handle_not_found_error(e: ValueError) -> NoReturn:
     """
     Convert 'not found' ValueError to HTTPException 404.
     
