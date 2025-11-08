@@ -44,5 +44,5 @@ def handle_not_found_error(e: ValueError) -> NoReturn:
         ValueError: Database connection failed
     """
     if "not found" in str(e).lower():
-        raise HTTPException(status_code=404, detail="Patient not found")
+        raise HTTPException(status_code=404, detail=str(e))
     raise e
