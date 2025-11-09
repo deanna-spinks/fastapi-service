@@ -31,4 +31,4 @@ ENV PORT=8000
 ENV LOG_LEVEL=debug
 
 # Development: includes --reload flag
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "${PORT}", "--log-level", "${LOG_LEVEL}", "--reload"]
+CMD ["sh", "-c", "uvicorn src.main:app --host 0.0.0.0 --port ${PORT} --log-level $(echo ${LOG_LEVEL} | tr '[:upper:]' '[:lower:]') --reload"]

@@ -28,4 +28,4 @@ ENV PORT=8000
 ENV LOG_LEVEL=info
 
 # Production: no --reload
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "${PORT}", "--log-level", "${LOG_LEVEL}"]
+CMD ["sh", "-c", "uvicorn src.main:app --host 0.0.0.0 --port ${PORT} --log-level $(echo ${LOG_LEVEL} | tr '[:upper:]' '[:lower:]')"]
