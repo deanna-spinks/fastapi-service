@@ -1,7 +1,10 @@
 # FastAPI Patient Management Service
 
 ⚠️ Status: WIP / Exploratory / Learning Project  
-This repository is intentionally incomplete and used to explore patterns and tooling.
+
+A small, realistic backend service demonstrating API design, data handling, and cloud deployment, built with FastAPI. 
+
+It is designed for demonstration and collaboration purposes only — no real patient data is included.
 
 ## 📋 Table of Contents
 
@@ -34,6 +37,7 @@ fastapi-service/
 - **[FastAPI](https://fastapi.tiangolo.com/)** - Modern, fast web framework for building APIs
 - **[Uvicorn](https://www.uvicorn.org/)** - Lightning-fast ASGI server
 - **[Pydantic](https://docs.pydantic.dev/)** - Data validation using Python type hints
+- **[Docker](https://docs.docker.com)** - Containerised for distribution and testing
 
 ## 🚀 Quick Start
 
