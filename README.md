@@ -1,6 +1,7 @@
 # FastAPI Patient Management Service
 
-A modern, cloud-ready microservice built with FastAPI.
+⚠️ Status: WIP / Exploratory / Learning Project  
+This repository is intentionally incomplete and used to explore patterns and tooling.
 
 ## 📋 Table of Contents
 
