@@ -29,7 +29,7 @@ fastapi-service/
 ├── tests/                    # Test suite
 ├── Dockerfile                # Container definition
 ├── requirements.txt          # Python dependencies
-└── pyproject.toml           # Project configuration
+└── pyproject.toml            # Project configuration
 ```
 
 ## 🛠️ Tech Stack
