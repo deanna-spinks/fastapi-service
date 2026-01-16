@@ -2,7 +2,7 @@
 
 ⚠️ Status: WIP / Exploratory / Learning Project  
 
-A small, realistic backend service demonstrating API design, data handling, and cloud deployment, built with FastAPI. 
+A small, realistic backend service demonstrating API design, data handling, and deployment, built with FastAPI and designed to be deployed as part of a larger system.
 
 It is designed for demonstration and collaboration purposes only — no real patient data is included.
 
