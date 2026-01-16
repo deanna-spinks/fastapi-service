@@ -135,7 +135,15 @@ curl -X POST "http://localhost:8000/patients/" \
   }'
 ```
 
-## Testing
+## Data Privacy & Safety
+- No real patient data included.
+- Synthetic datasets used for demonstration.
+- Patterns are intentionally generic.
+
+## CI / Testing
+- GitHub Actions workflow runs pytest on every push.
+- Docker environment ensures reproducibility.
+
 ```bash
 # Run all tests
 pytest
